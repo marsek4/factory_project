@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form id="registration">
+        <h1>Регистрация</h1>
+        <p>Введите логин:</p>
+        <input type="text" name="login" id="form_inp1">
+
+        <p>Введите пароль:</p>
+        <input type="password" name="password" id="form_inp2">
+
+        <p>Введите номер телефона:</p>
+        8<input type="text" name="phone_number" id="form_inp4">
+        <p id="error_message" style="display: none"></p>
+
+        <button type="submit" name="form_btn" id="form_btn">Проверить введенные данные</button>
+        <p id="result1"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+        <p id="result4"></p>
+    </form>
+
+        <script>
+            /*$(document).ready(function(){
+                $("#registration").submit(function(e){
+                    e.preventDefault();
+                    var word1 = $("#form_inp1").val();
+                    var word2 = $("#form_inp2").val();
+                    var word4 = $("#form_inp4").val();
+                    
+                    //var word2 = $("#form_inp2").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "test1_4.php",
+                        //data: {word1: word1, word2: word2},
+                        data: {word1: word1, word2: word2, word4: word4},
+                        success: function(response){
+                            $("#result1").text(response);
+                        }
+                    });
+                });
+            });*/
+            //$(document).ready(function(){
+            //let buttonExists = false;
+            /*
+        */
+        //$("#registration").submit(function(e){
+       // e.preventDefault();
+
+        $(document).ready(function (){
+            $('#registration').submit(function(e) {
+                e.preventDefault();
+                let word1 = $("#form_inp1").val();
+                let word2 = $("#form_inp2").val();
+                let word4 = $("#form_inp4").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "register.php",
+                    data: {word1: word1, word2: word2, word4: word4},
+                    success: function (response) {
+                        if (response == 'Успешная регистрация') {
+                            //window.location.href = 'autorization.php';
+                        }
+                        else {
+                            $('#error_message').show().text(response);
+                        }
+                    }
+                })
+            })
+        })
+
+        /*$(document).ready(function () {
+                    $('#form_btn').on('click', fuction() {
+                        let word1 = $("#form_inp1").val();
+                        let word2 = $("#form_inp2").val();
+                        let word4 = $("#form_inp4").val();
+
+                        $.ajax({
+                            type: "POST",
+                            url: "register.php",
+                            data: { word1: word1, word2: word2, word4: word4 },
+                            success: function (response) {
+                                if (response == 'Успешная регистрация') {}
+                 else {
+                                $('#error_message').show().text(response);
+                            }
+                        },
+                error: function () {
+                                let error_massage = 'pizdec';
+                                $('#error_message').show().text(error_massage);
+                            }
+                        });
+                    })
+                });
+            
+            ;
+            /*$(document).ready(function(){
+                $("#registration").submit(function(e){
+                    e.preventDefault();
+                    var word1 = $("#form_inp1").val();
+            
+                    //var word2 = $("#form_inp2").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "test.php",
+                        //data: {word1: word1, word2: word2},
+                        data: {word1: word1},
+                        success: function(response){
+                            $("#result1").text(response);
+                        }
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#registration").submit(function(e){
+                    e.preventDefault();
+                    var word2 = $("#form_inp2").val();
+                    //var word2 = $("#form_inp2").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "test2.php",
+                        //data: {word1: word1, word2: word2},
+                        data: {word2: word2},
+                        success: function(response){
+                            $("#result2").text(response);
+                        }
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#registration").submit(function(e){
+                    e.preventDefault();
+                    var word4 = $("#form_inp4").val();
+                    //var word2 = $("#form_inp2").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "test4.php",
+                        //data: {word1: word1, word2: word2},
+                        data: {word4: word4},
+                        success: function(response){
+                            $("#result4").text(response);
+                        }
+                    });
+                });
+            });
+            /*$(document).ready(function(){
+                $("#form_btn").click(function(){
+                    var word3 = $("#form_inp3").val();
+                    //var word2 = $("#form_inp2").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "test3.php",
+                        //data: {word1: word1, word2: word2},
+                        data: {word3: word3},
+                        success: function(response){
+                            $("#result3").text(response);
+                        }
+                    });
+                });
+            });*/
+        </script>
+
+</body>
+
+</html>

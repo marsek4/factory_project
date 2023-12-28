@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Авторизация</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--<link rel="stylesheet" href="autorization_style.css">-->
+    </head>
+    <body class="body">
+
+        <form class="aut_form" action="autorization.php" method="post">
+            <h1 class="header">Авторизация</h1>
+            <div class="divider"></div>
+            <p class="form_text">Логин:</p>
+            
+            <input type="text" placeholder="Введите логин" style="font-size: 20px" name="login" id="login"></input>
+            <p id="result"></p>
+            
+            <p class="form_text">Пароль:</p>
+            
+            <input type="password" placeholder="Введите пароль" style="font-size: 20px" name="password"></input>
+            
+            <div class="divider2"></div>
+            <form>
+                <button type="submit" formaction="list_of_products.php" name="btn" id="btn">Войти</button>
+            </form>
+        </form>
+        <p style="font-size: 20px;" class="register_link"><a href="register.html">Зарегистрироваться</a></p>
+        <p style="font-size: 20px;" class="register_link"><a href="worker.html">Войти как сотрудник</a></p>
+        <!--</script src='main_ajax.js'></script>-->
+    </body>    
+</html>
+

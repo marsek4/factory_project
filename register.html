@@ -1,0 +1,75 @@
+<!--<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Регистрация</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="registration_style.css">
+    </head>
+    <body class="body">
+        <form class="reg_form">
+            <h1 class="header">Регистрация</h1>
+            
+            <p class="form_text">Придумайте логин:</p>
+            
+            <input type="text" placeholder="Введите логин" name="login" id="login"></input>
+            
+            
+            <p class="form_text">Придумайте пароль:</p>
+            
+            <input type="password" placeholder="Введите пароль" style="font-size: 20px" class="input_psw" name="password"></input>
+            
+            <p class="form_text">Введите пароль повторно:</p>
+             
+            <input type="password" placeholder="Введите пароль еще раз" style="font-size: 20px" class="input_psw" name="password2"></input>
+            
+            <p class="form_text">Введите номер телефона:</p>
+            
+            <input type="text" placeholder="8(___)___-__-__" style="font-size: 20px" class="input_phone_number" name="phone_number"></input>
+            
+            <div class="divider2"></div>
+            <button type="submit" name="btn" id="btn">Зарегистрироваться</button>
+            <p id="result1"></p>
+
+            <script src="register_ajax.js"></script>
+
+        </form>
+        
+    </body>
+</html>
+action="register.php" method="post"-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="body">
+    
+    <h1 class="header">Регистрация</h1>
+    <p class="form_text">Придумайте логин:</p>
+    <input type="text" placeholder="Введите логин" name="login" id="login"></input>
+    <button type="submit" name="btn" id="btn">Зарегистрироваться</button>
+    <p id="result1"></p>
+    <script>
+        $(document).ready(function(){
+            $("#btn").submit(function(event){
+                event.preventDefault(); // Предотвращаем стандартное поведение отправки формы
+                var login = $("#login").val();
+                $.ajax({
+                    type: "POST",
+                    url: "register_ajax.php",
+                    data: {login: login}, // Используем правильное имя параметра
+                    success: function(response){
+                        $("#result1").text(response);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!--<script src="register_ajax.js"></script>-->
+</body>
+</html>
